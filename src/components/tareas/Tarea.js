@@ -4,6 +4,9 @@ const Tarea = ({tarea}) => {
     return ( 
         <li className='tarea sombra'>
             <p>{tarea.nombre}</p>
+            <div>
+                <p className='fecha'>Limite: {tarea.fecha}</p>
+            </div>
             <div className="estado">
                 {tarea.estado 
                     ?  

@@ -4,10 +4,10 @@ import Tarea from '../tareas/Tarea'
 const ListadoTareas = () => {
 
     const tareasProyecto = [
-        {nombre:'Reconocimiento del lugar', estado: true},
-        {nombre:'Ir al lugar mañana a las 5', estado: false},
-        {nombre:'Instalacion', estado: true},
-        {nombre:'Recibir pago', estado: false}
+        {nombre:'Reconocimiento del lugar', fecha: '2021-04-30' ,estado: true},
+        {nombre:'Ir al lugar mañana a las 5',fecha: '2021-07-20', estado: false},
+        {nombre:'Instalacion',fecha: '2021/07/22', estado: true},
+        {nombre:'Recibir pago', fecha: '2022/03/18',estado: false}
     ]
 
     return ( 
@@ -24,7 +24,7 @@ const ListadoTareas = () => {
             </ul>
             <button
                 type='button'
-                className='btn btn-eliminar'
+                className='btn btn-eliminar sombra'
             >Eliminar Proyecto &times;</button>
         </Fragment>
      );
