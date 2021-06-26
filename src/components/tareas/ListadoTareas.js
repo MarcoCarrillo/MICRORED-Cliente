@@ -6,7 +6,7 @@ const ListadoTareas = () => {
 
     //State del formulario
     const proyectosContext = useContext(proyectoContext);
-    const {proyecto} = proyectosContext;
+    const {proyecto, eliminarProyecto} = proyectosContext;
 
     //Si no hay proyecto seleccionado
     if(!proyecto) return <h2>Selecciona un proyecto</h2>
@@ -20,6 +20,11 @@ const ListadoTareas = () => {
         {nombre:'Instalacion',fecha: '2021/07/22', estado: true},
         {nombre:'Recibir pago', fecha: '2022/03/18',estado: false}
     ]
+
+    //Elimina un proyecto
+    const onClickEliminar = ()=>{
+        eliminarProyecto(proyectoActual.id)
+    }
 
     return ( 
         <Fragment>
@@ -36,6 +41,7 @@ const ListadoTareas = () => {
             <button
                 type='button'
                 className='btn btn-eliminar sombra'
+                onClick={onClickEliminar}
             >Eliminar Proyecto &times;</button>
         </Fragment>
      );
