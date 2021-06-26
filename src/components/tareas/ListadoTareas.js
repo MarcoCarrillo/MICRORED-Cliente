@@ -14,12 +14,7 @@ const ListadoTareas = () => {
     //Array destructuring para extraer posicion proyecto actual
     const [proyectoActual] = proyecto; 
 
-    const tareasProyecto = [
-        {nombre:'Reconocimiento del lugar', fecha: '2021-04-30' ,estado: true},
-        {nombre:'Ir al lugar mañana a las 5',fecha: '2021-07-20', estado: false},
-        {nombre:'Instalacion',fecha: '2021/07/22', estado: true},
-        {nombre:'Recibir pago', fecha: '2022/03/18',estado: false}
-    ]
+    const tareasProyecto = [];
 
     //Elimina un proyecto
     const onClickEliminar = ()=>{

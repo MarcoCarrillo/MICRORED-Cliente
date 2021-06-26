@@ -5,7 +5,7 @@ const Tarea = ({tarea}) => {
         <li className='tarea sombra'>
             <p>{tarea.nombre}</p>
             <div>
-                <p className='fecha'>Limite: {tarea.fecha}</p>
+                <p className='fecha'>Límite: {tarea.fecha}</p>
             </div>
             <div className="estado">
                 {tarea.estado 

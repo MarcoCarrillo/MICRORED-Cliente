@@ -11,7 +11,9 @@ const ListadoProyectos = () => {
 
     //Ejecutar el obtener proyectos cuando el componente cargue
     useEffect(() => {
-        obtenerProyectos()
+        obtenerProyectos();
+        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
     
     //Revisar si proyectos tiene contenido
