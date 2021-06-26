@@ -19,8 +19,7 @@ const FormTarea = () => {
                         type='date'
                         value='Fecha de finalizacion'
                         className='input-date'
-                        placeholder='Fecha esperada para completar la tarea'
-                        name='nombre'
+                        name='fecha'
                     />
                 </div>
 
