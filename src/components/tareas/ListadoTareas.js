@@ -1,7 +1,18 @@
-import React, {Fragment} from 'react'
-import Tarea from '../tareas/Tarea'
+import React, {Fragment, useContext} from 'react'
+import Tarea from '../tareas/Tarea';
+import proyectoContext from '../../context/proyectos/proyectoContext';
 
 const ListadoTareas = () => {
+
+    //State del formulario
+    const proyectosContext = useContext(proyectoContext);
+    const {proyecto} = proyectosContext;
+
+    //Si no hay proyecto seleccionado
+    if(!proyecto) return <h2>Selecciona un proyecto</h2>
+
+    //Array destructuring para extraer posicion proyecto actual
+    const [proyectoActual] = proyecto; 
 
     const tareasProyecto = [
         {nombre:'Reconocimiento del lugar', fecha: '2021-04-30' ,estado: true},
@@ -12,7 +23,7 @@ const ListadoTareas = () => {
 
     return ( 
         <Fragment>
-            <h2>Proyecto: Sistema de cableado</h2>
+            <h2>Proyecto: {proyectoActual.nombre}</h2>
             <ul className='listado-tareas'>
                 {tareasProyecto.length === 0 ? (<li className='tarea'>No hay tareas</li>) 
                     : tareasProyecto.map(tarea =>(
