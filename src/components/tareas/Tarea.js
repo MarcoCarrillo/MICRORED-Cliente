@@ -10,7 +10,7 @@ const Tarea = ({tarea}) => {
 
     //Obtener la funcion del context de tarea
     const tareasContext = useContext(tareaContext);
-    const {eliminarTarea, obtenerTareas, cambiarEstadoTarea} = tareasContext;
+    const {eliminarTarea, obtenerTareas, cambiarEstadoTarea, guardarTareaActual} = tareasContext;
 
     //Extraer el proyecto
     const [proyectoActual] = proyecto;
@@ -32,6 +32,11 @@ const Tarea = ({tarea}) => {
         }
         //Se pasa la funcion de cambiarEstadoTarea para el dispatch
         cambiarEstadoTarea(tarea);
+    }
+
+    //Poner en activo la tarea actual cuando el usuario quiera editarla
+    const seleccionarTarea = tarea =>{
+        guardarTareaActual(tarea);
     }
 
     return ( 
@@ -57,7 +62,11 @@ const Tarea = ({tarea}) => {
                 }
             </div>
             <div className="acciones">
-                <button type='button' className='btn btn-primario'>Editar</button>
+                <button 
+                    type='button' 
+                    className='btn btn-primario'
+                    onClick={() => seleccionarTarea(tarea)}
+                    >Editar</button>
                 <button 
                     type='button' 
                     className='btn btn-secundario'
