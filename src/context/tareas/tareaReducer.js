@@ -5,7 +5,8 @@ import {
     ELIMINAR_TAREA,
     ESTADO_TAREA,
     TAREA_ACTUAL,
-    ACTUALIZAR_TAREA
+    ACTUALIZAR_TAREA,
+    LIMPIAR_TAREA
 } from '../../types';
 // eslint-disable-next-line
 export default (state, action) =>{
@@ -45,6 +46,11 @@ export default (state, action) =>{
                 ...state,
                 tareaseleccionada: action.payload
                 //En la tarea seleccionada colocamos la que se seleccione
+            }
+        case LIMPIAR_TAREA:
+            return{
+                ...state,
+                tareaseleccionada: null
             }
         default:
             return state;

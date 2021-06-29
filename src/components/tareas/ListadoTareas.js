@@ -29,7 +29,7 @@ const ListadoTareas = () => {
         <Fragment>
             <h2>Proyecto: {proyectoActual.nombre}</h2>
             <ul className='listado-tareas'>
-                {tareasproyecto.length === 0 ? (<li className='tarea'>No hay tareas</li>) 
+                {tareasproyecto.length === 0 ? (<li className='tarea'>No hay tareas, comienza agregando una!</li>) 
                     : 
                     <TransitionGroup>
                     {tareasproyecto.map(tarea =>(
