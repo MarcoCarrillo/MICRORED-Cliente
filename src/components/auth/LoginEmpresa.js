@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const Login = () => {
+const LoginEmpresa = () => {
 
     //State para iniciar sesion
     const [usuarioEmpresa, guardarUsuarioEmpresa] = useState({
@@ -73,4 +73,4 @@ const Login = () => {
      );
 }
  
-export default Login;
+export default LoginEmpresa;
