@@ -4,7 +4,8 @@ import {
     VALIDAR_TAREA,
     ELIMINAR_TAREA,
     ESTADO_TAREA,
-    TAREA_ACTUAL
+    TAREA_ACTUAL,
+    ACTUALIZAR_TAREA
 } from '../../types';
 // eslint-disable-next-line
 export default (state, action) =>{
@@ -31,11 +32,13 @@ export default (state, action) =>{
                 tareas: state.tareas.filter(tarea => tarea.id !== action.payload) 
                 //iterar en cada una de las tareas y nos traiga las de id diferente al action.payload
             }
+        case ACTUALIZAR_TAREA:
         case ESTADO_TAREA:
             return{
                 ...state,
-                tareas: state.tareasproyecto.map(tarea => tarea.id === action.payload.id ? action.payload : tarea)
+                tareas: state.tareas.map(tarea => tarea.id === action.payload.id ? action.payload : tarea),
                 //Iterar en cada tarea hasta encontrar el id de la tarea que seleccionamos despues ejecuta el ternario y si si encuentra la tarea ejecuta la funcion para cambiar el estado y si no deja la tarea como estaba
+                
             }
         case TAREA_ACTUAL:
             return{
