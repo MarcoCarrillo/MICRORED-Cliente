@@ -4,25 +4,26 @@ import TareaReducer from './tareaReducer';
 import { 
     TAREAS_PROYECTO,
     AGREGAR_TAREA,
-    VALIDAR_TAREA
+    VALIDAR_TAREA,
+    ELIMINAR_TAREA
 } from '../../types';
 
 
 const TareaState = props => {
     const initialState = {
         tareas:[  
-            {nombre:'Reconocimiento del lugar', fecha: '2021-04-30' ,estado: true, proyectoId: 1},
-            {nombre:'Ir al lugar mañana a las 5',fecha: '2021-07-20', estado: false, proyectoId: 2},
-            {nombre:'Instalacion',fecha: '2021-07-22', estado: true, proyectoId: 3},
-            {nombre:'Recibir pago', fecha: '2022-03-18',estado: false, proyectoId: 4},
-            {nombre:'Reconocimiento del lugar', fecha: '2021-04-30' ,estado: true, proyectoId: 4},
-            {nombre:'Ir al lugar mañana a las 5',fecha: '2021-07-20', estado: false, proyectoId: 3},
-            {nombre:'Instalacion',fecha: '2021-07-22', estado: true, proyectoId: 2},
-            {nombre:'Recibir pago', fecha: '2022-03-18',estado: false, proyectoId: 1},
-            {nombre:'Reconocimiento del lugar', fecha: '2021-04-30' ,estado: true, proyectoId: 2},
-            {nombre:'Ir al lugar mañana a las 5',fecha: '2021-07-20', estado: false, proyectoId: 3},
-            {nombre:'Instalacion',fecha: '2021-07-22', estado: true, proyectoId: 4},
-            {nombre:'Recibir pago', fecha: '2022-03-18',estado: false, proyectoId: 1}
+            {id: 1,nombre:'Reconocimiento del lugar', fecha: '2021-04-30' ,estado: true, proyectoId: 1},
+            {id: 2,nombre:'Ir al lugar mañana a las 5',fecha: '2021-07-20', estado: false, proyectoId: 2},
+            {id: 3,nombre:'Instalacion',fecha: '2021-07-22', estado: true, proyectoId: 3},
+            {id: 4,nombre:'Recibir pago', fecha: '2022-03-18',estado: false, proyectoId: 4},
+            {id: 5,nombre:'Reconocimiento del lugar', fecha: '2021-04-30' ,estado: true, proyectoId: 4},
+            {id: 6,nombre:'Ir al lugar mañana a las 5',fecha: '2021-07-20', estado: false, proyectoId: 3},
+            {id: 7,nombre:'Instalacion',fecha: '2021-07-22', estado: true, proyectoId: 2},
+            {id: 8,nombre:'Recibir pago', fecha: '2022-03-18',estado: false, proyectoId: 1},
+            {id: 9,nombre:'Reconocimiento del lugar', fecha: '2021-04-30' ,estado: true, proyectoId: 2},
+            {id: 10,nombre:'Ir al lugar mañana a las 5',fecha: '2021-07-20', estado: false, proyectoId: 3},
+            {id: 11,nombre:'Instalacion',fecha: '2021-07-22', estado: true, proyectoId: 4},
+            {id: 12,nombre:'Recibir pago', fecha: '2022-03-18',estado: false, proyectoId: 1}
         ],
         tareasproyecto: null,
         errortarea: false
@@ -54,6 +55,13 @@ const TareaState = props => {
         })
     }
 
+    //Eliminar las tareas por su id
+    const eliminarTarea = id => {
+        dispatch({
+            type: ELIMINAR_TAREA,
+            payload: id
+        })
+    }
 
     return(
         <TareaContext.Provider
@@ -63,7 +71,8 @@ const TareaState = props => {
                 errortarea: state.errortarea,
                 obtenerTareas,
                 agregarTarea,
-                validarTarea
+                validarTarea,
+                eliminarTarea 
             }}
         >
             {props.children}
