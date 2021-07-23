@@ -24,7 +24,7 @@ const NuevaCuenta = () => {
     //Cuando el usuario quiera iniciar sesion
     const onSubmit = e =>{
         e.preventDefault()
-
+        
     }
 
     return ( 
