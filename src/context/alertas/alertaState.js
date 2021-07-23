@@ -1,4 +1,4 @@
-import React, {useState, useReducer} from 'react';
+import React, { useReducer} from 'react';
 import alertaReducer from './alertaReducer';
 import alertaContext from './alertaContext';
 
@@ -24,7 +24,7 @@ const AlertaState = (props) => {
                 categoria
             }
         });
-
+        //Quitar alerta despues de 5 segundos
         setTimeout(() => {
             dispatch({
                 type: OCULTAR_ALERTA
