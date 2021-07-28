@@ -10,7 +10,7 @@ const Tarea = ({tarea}) => {
 
     //Obtener la funcion del context de tarea
     const tareasContext = useContext(tareaContext);
-    const {eliminarTarea, obtenerTareas, cambiarEstadoTarea, guardarTareaActual} = tareasContext;
+    const {eliminarTarea, obtenerTareas, actualizarTarea, guardarTareaActual} = tareasContext;
 
     //Extraer el proyecto
     const [proyectoActual] = proyecto;
@@ -31,7 +31,7 @@ const Tarea = ({tarea}) => {
             tarea.estado=true;
         }
         //Se pasa la funcion de cambiarEstadoTarea para el dispatch
-        cambiarEstadoTarea(tarea);
+        actualizarTarea(tarea);
     }
 
     //Poner en activo la tarea actual cuando el usuario quiera editarla
