@@ -41,7 +41,7 @@ export default (state, action) =>{ // eslint-disable-next-line
         case ELIMINAR_PROYECTO:
             return{
                 ...state,
-                proyectos: state.proyectos.filter(proyecto => proyecto.id !== action.payload),
+                proyectos: state.proyectos.filter(proyecto => proyecto._id !== action.payload),
                 //Quitar el proyecto de activo para que se refresque esa pantalla
                 proyecto: null
             }
