@@ -12,6 +12,7 @@ import {
 } from '../../types/index';
 
 import clienteAxios from '../../config/axios';
+import tokenAuth from '../../config/token';
 
 const AuthState = (props) => {
     const initialState = {
@@ -27,7 +28,7 @@ const AuthState = (props) => {
     const registrarUsuario = async datos => {
         try{
             const respuesta = await clienteAxios.post('/api/usuarios', datos); //datos del formulario
-            // console.log(respuesta); 
+            console.log(respuesta); 
 
             dispatch({
                 type: REGISTRO_EXITOSO,
@@ -52,22 +53,26 @@ const AuthState = (props) => {
 
     //Retorna el usuario autenticado
     const usuarioAutenticado = async () => {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('token'); //Obtenemos el token de localStorage
         if(token){
             //Funcion para enviar el token por headers
-
+            tokenAuth(token); //Se pasa a la funcion y esta funcion lo coloca en los defaults del header y lo envia o lo elimina
+        }
             try{
                 const respuesta = await clienteAxios.get('/api/auth');
-                console.log(respuesta.data);
-
+                // console.log(respuesta.data);
+                dispatch({
+                    type: OBTENER_USUARIO,
+                    payload: respuesta.data.usuario
+                });
             } catch(error){
-                // console.log(error);
+                // console.log(error.response);
                 dispatch({
                     type: LOGIN_ERROR
                 });
             }
-        }
     }
+    
     return(
         <AuthContext.Provider 
             value={{
