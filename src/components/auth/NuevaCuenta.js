@@ -20,7 +20,6 @@ const NuevaCuenta = (props) => {
         }
         if(mensaje) {
             mostrarAlerta(mensaje.msg, mensaje.categoria);
-            return;
         }
     },[mensaje, autenticado, props.history]); 
 
