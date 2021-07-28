@@ -96,6 +96,13 @@ const AuthState = (props) => {
             });
         }
     }
+
+    //Cierra la sesion del usuario
+    const cerrarSesion = () => {
+        dispatch({
+            type: CERRAR_SESION
+        });
+    }
     
     return(
         <AuthContext.Provider 
@@ -106,7 +113,8 @@ const AuthState = (props) => {
                 mensaje: state.mensaje,
                 registrarUsuario,
                 usuarioAutenticado,
-                iniciarSesion
+                iniciarSesion,
+                cerrarSesion
             }}>
                     {props.children}
             </AuthContext.Provider>

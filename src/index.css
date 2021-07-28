@@ -122,6 +122,10 @@ a img {
 
 }
 
+.cerrar-sesion {
+  color: var(--blanco);
+}
+
 /** FORMS Y CONTENEDORES **/
 
 .form-usuario {
