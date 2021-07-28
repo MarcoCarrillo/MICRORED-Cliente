@@ -11,26 +11,12 @@ import {
     ACTUALIZAR_TAREA,
     LIMPIAR_TAREA
 } from '../../types';
-import { v4 as uuidv4 } from 'uuid';
 
+import clienteAxios from '../../config/axios';
 
 const TareaState = props => {
     const initialState = {
-        tareas:[  
-            {id: 1,nombre:'Reconocimiento del lugar', fecha: '2021-04-30' ,estado: true, proyectoId: 1},
-            {id: 2,nombre:'Ir al lugar mañana a las 5',fecha: '2021-07-20', estado: false, proyectoId: 2},
-            {id: 3,nombre:'Instalacion',fecha: '2021-07-22', estado: true, proyectoId: 3},
-            {id: 4,nombre:'Recibir pago', fecha: '2022-03-18',estado: false, proyectoId: 4},
-            {id: 5,nombre:'Reconocimiento del lugar', fecha: '2021-04-30' ,estado: true, proyectoId: 4},
-            {id: 6,nombre:'Ir al lugar mañana a las 5',fecha: '2021-07-20', estado: false, proyectoId: 3},
-            {id: 7,nombre:'Instalacion',fecha: '2021-07-22', estado: true, proyectoId: 2},
-            {id: 8,nombre:'Recibir pago', fecha: '2022-03-18',estado: false, proyectoId: 1},
-            {id: 9,nombre:'Reconocimiento del lugar', fecha: '2021-04-30' ,estado: true, proyectoId: 2},
-            {id: 10,nombre:'Ir al lugar mañana a las 5',fecha: '2021-07-20', estado: false, proyectoId: 3},
-            {id: 11,nombre:'Instalacion',fecha: '2021-07-22', estado: true, proyectoId: 4},
-            {id: 12,nombre:'Recibir pago', fecha: '2022-03-18',estado: false, proyectoId: 1}
-        ],
-        tareasproyecto: null,
+        tareasproyecto: [],
         errortarea: false,
         tareaseleccionada: null
     }
@@ -47,12 +33,18 @@ const TareaState = props => {
     }
 
     //Agregar una nueva tarea
-    const agregarTarea = tarea =>{
-        tarea.id = uuidv4;
-        dispatch({
-            type: AGREGAR_TAREA,
-            payload: tarea
-        })
+    const agregarTarea = async tarea =>{
+        console.log(tarea);
+        try {
+            const resultado = await clienteAxios.post('/api/tareas', tarea);
+            console.log(resultado);
+            dispatch({
+                type: AGREGAR_TAREA,
+                payload: tarea
+            });
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     //Valida y muestra un error en caso de que sea necesario
@@ -104,7 +96,6 @@ const TareaState = props => {
     return(
         <TareaContext.Provider
             value={{
-                tareas: state.tareas,
                 tareasproyecto: state.tareasproyecto,
                 errortarea: state.errortarea,
                 tareaseleccionada: state.tareaseleccionada,

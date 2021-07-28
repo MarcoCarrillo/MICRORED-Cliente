@@ -5,7 +5,8 @@ import {
     AGREGAR_PROYECTO,
     VALIDAR_FORMULARIO,
     PROYECTO_ACTUAL,
-    ELIMINAR_PROYECTO
+    ELIMINAR_PROYECTO,
+    PROYECTO_ERROR
 } from '../../types';
 // eslint-disable-next-line
 export default (state, action) =>{ // eslint-disable-next-line
@@ -44,6 +45,11 @@ export default (state, action) =>{ // eslint-disable-next-line
                 proyectos: state.proyectos.filter(proyecto => proyecto._id !== action.payload),
                 //Quitar el proyecto de activo para que se refresque esa pantalla
                 proyecto: null
+            }
+        case PROYECTO_ERROR:
+            return{
+                ...state,
+                mensaje: action.payload
             }
         default:
             return state;
