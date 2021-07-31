@@ -17,7 +17,7 @@ export default (state, action) =>{ // eslint-disable-next-line
                 formulario: true 
             }
         case OBTENER_PROYECTOS:
-            console.log(action.payload);
+            // console.log(action.payload);
             return{
                 ...state,
                 proyectos: action.payload

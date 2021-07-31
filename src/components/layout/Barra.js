@@ -8,6 +8,8 @@ const Barra = () => {
 
     useEffect(() => {
         usuarioAutenticado();
+        //Para que no se cicle la aplicacion
+        // eslint-disable-next-line
     }, []);
 
     return ( 

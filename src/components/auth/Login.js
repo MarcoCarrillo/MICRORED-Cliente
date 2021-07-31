@@ -21,6 +21,7 @@ const Login = (props) => {
         if(mensaje) {
             mostrarAlerta(mensaje.msg, mensaje.categoria);
         }
+        //eslint-disable-next-line
     },[mensaje, autenticado, props.history]); 
 
     //State para iniciar sesion
@@ -57,7 +58,10 @@ const Login = (props) => {
         <div className='form-usuario'>
             {alerta ? (<div className={`alerta ${alerta.categoria}`}> {alerta.msg} </div>) :null} 
             <div className='contenedor-form sombra-dark'>
-                <h1>Iniciar Sesión</h1>
+                <h1> 
+                    <img src="http://microred.mx/wp-content/uploads/2018/01/logotipoOk.jpg" alt="logo" />
+                </h1>
+                
 
                 <form
                     onSubmit={onSubmit}
@@ -93,11 +97,13 @@ const Login = (props) => {
                     </div>
                 </form> 
 
-                <Link to={'nueva-cuenta'} className='enlace-cuenta' >
-                    ¿Aun no tienes una cuenta? Registrate AQUI
-                </Link>
+                
             </div>
+            <Link to={'nueva-cuenta'} className='enlace-cuenta' >
+                .
+            </Link>
         </div>
+        
      );
 }
  
