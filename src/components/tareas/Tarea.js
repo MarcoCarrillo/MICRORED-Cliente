@@ -58,7 +58,7 @@ const Tarea = ({tarea}) => {
                             type='button' 
                             className='incompleto'
                             onClick={()=>cambiarEstado(tarea)}
-                            >Inompleto</button>)
+                            >Incompleto</button>)
                 }
             </div>
             <div className="acciones">

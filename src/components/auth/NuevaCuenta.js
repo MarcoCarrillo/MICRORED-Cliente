@@ -43,7 +43,7 @@ const NuevaCuenta = (props) => {
         })
     }
 
-    //Cuando el usuario quiera iniciar sesion
+    //Cuando el usuario quiera registrarse
     const onSubmit = e =>{
         e.preventDefault()
 

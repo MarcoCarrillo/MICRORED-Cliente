@@ -39,7 +39,6 @@ const TareaState = props => {
 
     //Agregar una nueva tarea
     const agregarTarea = async tarea =>{
-        // console.log(tarea);
         try {
             const resultado = await clienteAxios.post('/api/tareas', tarea);
             // console.log(resultado);
